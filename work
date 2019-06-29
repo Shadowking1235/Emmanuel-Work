@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Oop
+{
+    public partial class Form1 : Form
+    {
+        private object folder;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Load(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if (folder.ShowDialog() == DialogResult.OK)
+            {
+                string[] dirs = Directory.GetFiles(folder.SelectedPath, "*jpg");
+                label1.Text = "Number of found images: " + dirs.Length.ToString();
+                MessageBox.Show(dirs.Length.ToString());
+            }
+        }
+
+        private void Column_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Row_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+            string[] dirs = Directory.GetFiles(folder.SelectedPath, "*jpg");
+            label1.Text = "Number of found images: " + dirs.Length.ToString();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ImageExampleForm_Paint(object sender, PaintEventArgs e)
+        {
+            // Create image.
+            Image newImage = Image.FromFile("*jpg");
+
+            // Create Point for upper-left corner of image.
+            Point ulCorner = new Point(100, 100);
+            Point Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 5);
+            e.Graphics.DrawRectangle(blackPen, 10, 10, 100, 50);
+
+            // Draw image to screen.
+            e.Graphics.DrawImage(newImage, ulCorner);
+        }
+        private  void Rectangle(object blackpen)
+        {
+          Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 5);
+        e.Graphics.DrawRectangle(blackPen, 10, 10, 100, 50);
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void Button3_Click(object sender, EventArgs e)
+        {
+
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if (folder.ShowDialog() == DialogResult.OK);
+
+        }
+    }
+}
